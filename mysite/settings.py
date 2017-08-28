@@ -32,12 +32,16 @@ ALLOWED_HOSTS = ['127.0.0.1', 'KumiShida.pythonanywhere.com', 'localhost']
 
 INSTALLED_APPS = [
     'blog',
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Third party
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+LOGIN_URL = 'user:login'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -120,3 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Settings for django-bootstrap3
+BOOTSRAP3 = {
+    'include_jquery': True,
+}

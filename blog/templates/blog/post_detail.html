@@ -3,12 +3,14 @@
 {% block content %}
     <div class="post">
         {% if post.published_date %}
-            <div class="date">
+            <div class="date text-right">
                 {{ post.published_date }}
             </div>
         {% endif %}
-        {% if user.is_authenticated %}
-            <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% if isAuthor %}
+            <a class="btn btn-primary pull-right" href="{% url 'blog:post_edit' pk=post.pk %}">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>

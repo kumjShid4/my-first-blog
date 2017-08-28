@@ -1,34 +1,70 @@
-h1 a {
-    color:#FCA205;
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border: 0px;
+}
+.navbar-default .navbar-brand {
     font-family: 'Lobster';
+    font-size: 24px;
+    color: #563d7c;
 }
 
-body {
-    padding-left: 15px;
+.navbar-nav,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a {
+    color: #563d7c;
 }
 
-.page-header {
-    background-color: #ff9400;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #463265;
+    background-color: #eff0f1;
+    background-image: none;
+    background-repeat: no-repeat;
+    box-shadow: none;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.bs-docs-header {
+    background-color: #63498b;
+    color: #cdbfe3;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.bs-docs-header h1 {
     color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
+    line-height: 1;
+    margin-right: 380px;
+    margin-top: 0;
+    font-size: 60px;
+}
+
+.bs-docs-header p {
+    margin-right: 380px;
+    line-height: 1.4;
+    margin-bottom: 0;
 }
 
 .content {
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+.date {
+    color: #90949c;
+    font-size: 12px;
 }
 
-.date {
-    color: #828282;
+.author {
+    font-size: 14px;
+    color: #365899;
+    font-weight: bold;
 }
 
 .save {
