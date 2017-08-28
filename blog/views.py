@@ -9,6 +9,11 @@ def your_post(request):
     posts = Post.objects.filter(author=request.user)
     return render(request, 'blog/your_post.html', {'posts': posts})
 
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('blog:post_list')
+
 def post_list(request):
     posts = Post.objects.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts':posts})
