@@ -1,8 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load bootstrap3 %}
 {% block content %}
-    <h1>New post</h1>
-    <form method="POST" class="post-form">
+    <h1>Edit post</h1>
+    <form method="POST" class="post-form col-md-10">
         {% csrf_token %}
         {% bootstrap_form form %}
         <button type="submit" class="save btn btn-primary">Save</button>

@@ -14,3 +14,17 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    post = models.ForeignKey('blog.Post', related_name='comments')
+    author = models.ForeignKey('auth.User')
+    content = models.TextField(default=timezone.now)
+    created_date = models.DateTimeField()
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.content

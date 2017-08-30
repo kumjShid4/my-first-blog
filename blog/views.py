@@ -9,6 +9,7 @@ def your_post(request):
     posts = Post.objects.filter(author=request.user)
     return render(request, 'blog/your_post.html', {'posts': posts})
 
+@login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()

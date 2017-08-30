@@ -1,18 +1,28 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
-    <div class="post">
+    <div class="post col-md-10">
+        <div class="author">
+            {{ post.author }}
+        </div>
         {% if post.published_date %}
-            <div class="date text-right">
+            <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}
-        {% if isAuthor %}
-            <a class="btn btn-primary pull-right" href="{% url 'blog:post_edit' pk=post.pk %}">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+    {% if isAuthor %}
+        <div class="post col-md-2">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="{% url 'blog:post_edit' pk=post.pk %}">Edit</a></li>
+                    <li><a href="{% url 'blog:post_remove' pk=post.pk %}">Delete</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
