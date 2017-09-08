@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load bootstrap3 %}
 {% block content %}
-    <form method="post" action="{% url 'user:login' %}" class="form-horizontal" role="form">
+<div class="row">
+    <form method="post" action="{% url 'user:login' %}" class="form-horizontal col-md-10" role="form">
 		{% csrf_token %}
         {% bootstrap_form form %} 
         {% buttons %}
@@ -9,4 +10,5 @@
         {% endbuttons %}
         <input type="hidden" name="next" value="{% url 'blog:post_list' %}" />
     </form>
+</div>
 {% endblock content %}

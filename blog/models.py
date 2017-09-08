@@ -18,8 +18,8 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')
     author = models.ForeignKey('auth.User')
-    content = models.TextField(default=timezone.now)
-    created_date = models.DateTimeField()
+    content = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
     def approve(self):

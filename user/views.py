@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 from .forms import UserCreateForm
 
 def logout_view(request):
@@ -26,4 +27,6 @@ def register(request):
             authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
             login(request, authenticated_user)
             return HttpResponseRedirect(reverse('blog:post_list'))
+        else:
+            messages.warning(request, 'Invalid form!')
     return render(request, 'user/register.html', {'form':form})

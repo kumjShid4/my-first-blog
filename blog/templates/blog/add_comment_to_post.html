@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+    <h1>New comment</h1>
+    <div class="row">
+        <form method="POST" class="post-form col-md-10">{% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="save btn btn-default">Send</button>
+        </form>
+    </div>
+{% endblock %}
